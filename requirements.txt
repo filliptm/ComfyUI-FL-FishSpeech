@@ -1,0 +1,11 @@
+huggingface_hub
+torchaudio
+loralib
+tiktoken
+loguru
+einops
+hydra-core
+safetensors
+natsort
+lightning
+pytorch_lightning

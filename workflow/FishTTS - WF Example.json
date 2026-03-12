@@ -1,0 +1,349 @@
+{
+  "id": "5c147db7-9402-4654-a208-d81db2995722",
+  "revision": 0,
+  "last_node_id": 35,
+  "last_link_id": 54,
+  "nodes": [
+    {
+      "id": 34,
+      "type": "FL_FishSpeech_Transcribe",
+      "pos": [
+        -1558.0367469259602,
+        -2127.7794654819163
+      ],
+      "size": [
+        272.0015625,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 49
+        }
+      ],
+      "outputs": [
+        {
+          "name": "transcription",
+          "type": "STRING",
+          "links": [
+            50
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FL_FishSpeech_Transcribe"
+      },
+      "widgets_values": [
+        "openai/whisper-large-v3-turbo",
+        "auto",
+        "auto"
+      ],
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 21,
+      "type": "FL_FishSpeech_ReferenceAudio",
+      "pos": [
+        -1559.9020764707666,
+        -2292.290103740347
+      ],
+      "size": [
+        275.4993789777918,
+        108
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "fs_model",
+          "type": "FS_MODEL",
+          "link": 33
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 45
+        },
+        {
+          "name": "transcript",
+          "type": "STRING",
+          "widget": {
+            "name": "transcript"
+          },
+          "link": 50
+        }
+      ],
+      "outputs": [
+        {
+          "name": "fs_reference",
+          "type": "FS_REFERENCE",
+          "links": [
+            53
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FL_FishSpeech_ReferenceAudio"
+      },
+      "widgets_values": [
+        ""
+      ],
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 20,
+      "type": "FL_FishSpeech_ModelLoader",
+      "pos": [
+        -1920.8141903172211,
+        -2375.8077779590035
+      ],
+      "size": [
+        283.8968694424476,
+        130
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "fs_model",
+          "type": "FS_MODEL",
+          "links": [
+            33,
+            52
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FL_FishSpeech_ModelLoader"
+      },
+      "widgets_values": [
+        "auto",
+        "bfloat16",
+        true,
+        false
+      ],
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 26,
+      "type": "LoadAudio",
+      "pos": [
+        -1920.3127493809948,
+        -2192.5391746417204
+      ],
+      "size": [
+        282.798828125,
+        136
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            45,
+            49
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.12.2",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "chunk_035.mp3",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 35,
+      "type": "FL_FishSpeech_TTS",
+      "pos": [
+        -1249.0463040827638,
+        -2373.0131401698054
+      ],
+      "size": [
+        370.4508019725772,
+        347.4578028925275
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "fs_model",
+          "type": "FS_MODEL",
+          "link": 52
+        },
+        {
+          "name": "fs_reference",
+          "shape": 7,
+          "type": "FS_REFERENCE",
+          "link": 53
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            54
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FL_FishSpeech_TTS"
+      },
+      "widgets_values": [
+        "(annoyed) It's a one-time cost; subsequent generations will be faster. If the compilation delay is annoying.",
+        1553086716,
+        "randomize",
+        1,
+        0.9,
+        30,
+        1.1,
+        512,
+        0
+      ],
+      "color": "#16727c",
+      "bgcolor": "#4F0074"
+    },
+    {
+      "id": 24,
+      "type": "SaveAudioMP3",
+      "pos": [
+        -1255.3044660528758,
+        -2563.0055291837
+      ],
+      "size": [
+        383.0059829895408,
+        136
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 54
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.12.2",
+        "Node name for S&R": "SaveAudioMP3"
+      },
+      "widgets_values": [
+        "audio/ComfyUI",
+        "V0"
+      ]
+    }
+  ],
+  "links": [
+    [
+      33,
+      20,
+      0,
+      21,
+      0,
+      "FS_MODEL"
+    ],
+    [
+      45,
+      26,
+      0,
+      21,
+      1,
+      "AUDIO"
+    ],
+    [
+      49,
+      26,
+      0,
+      34,
+      0,
+      "AUDIO"
+    ],
+    [
+      50,
+      34,
+      0,
+      21,
+      2,
+      "STRING"
+    ],
+    [
+      52,
+      20,
+      0,
+      35,
+      0,
+      "FS_MODEL"
+    ],
+    [
+      53,
+      21,
+      0,
+      35,
+      1,
+      "FS_REFERENCE"
+    ],
+    [
+      54,
+      35,
+      0,
+      24,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Group",
+      "bounding": [
+        -1930.8141903172211,
+        -2636.6055291837,
+        1072.9928584701627,
+        628.7508919984176
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "workflowRendererVersion": "LG",
+    "ds": {
+      "scale": 0.9229599817706431,
+      "offset": [
+        2652.5825364648717,
+        3014.096905763467
+      ]
+    },
+    "frontendVersion": "1.37.11",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
