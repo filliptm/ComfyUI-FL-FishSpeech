@@ -2,7 +2,7 @@
 name = "comfyui-fl-fishspeech"
 description = "FL FishSpeech - AI Text-to-Speech & Voice Cloning for ComfyUI. High-quality 44.1kHz speech synthesis with zero-shot voice cloning using OpenAudio S1-mini (Fish Audio). Features DualAR Transformer, DAC codec, emotion control tags, and built-in Whisper transcription."
 version = "1.0.0"
-license = "Apache-2.0"
+license = {text = "Apache-2.0"}
 dependencies = [
     "huggingface_hub",
     "torchaudio",
