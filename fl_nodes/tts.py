@@ -10,6 +10,7 @@ import torch
 from comfy.utils import ProgressBar
 
 import fs_tensor_utils  # type: ignore[import]
+import fs_s1_compat  # type: ignore[import]
 
 LOG_PREFIX = "[FL FishSpeech | TTS]"
 
@@ -173,11 +174,9 @@ class FL_FishSpeech_TTS:
             print(f"{LOG_PREFIX} Reference: tokens={list(prompt_tokens[0].shape)}, "
                   f"text='{prompt_text[0][:80]}...'")
 
-        # Import v2.0 inference functions
-        from fish_speech.models.text2semantic.inference import (
-            decode_to_audio,
-            generate_long,
-        )
+        from fish_speech.models.text2semantic.inference import decode_to_audio
+
+        generate_long = fs_s1_compat.generate_long_s1
 
         # Per-token progress bar: estimate max tokens, add extra steps for
         # setup (1), decode (1), and finalize (1)

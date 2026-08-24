@@ -35,10 +35,11 @@ Search for "FL FishSpeech" and install.
 
 ### Manual
 ```bash
-cd ComfyUI/custom_nodes
-git clone https://github.com/filliptm/ComfyUI-FL-FishSpeech.git
-cd ComfyUI-FL-FishSpeech
-pip install -r requirements.txt
+cd ComfyUI
+git clone https://github.com/fishaudio/fish-speech.git
+git -C fish-speech checkout befe4001745417f8c42131739d862b8a6fdbd15a
+git clone https://github.com/filliptm/ComfyUI-FL-FishSpeech.git custom_nodes/ComfyUI-FL-FishSpeech
+pip install -r custom_nodes/ComfyUI-FL-FishSpeech/requirements.txt
 ```
 
 ## Quick Start

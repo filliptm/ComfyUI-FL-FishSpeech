@@ -54,6 +54,10 @@ fs_tensor_utils = import_module_from_path(
     "fs_tensor_utils",
     os.path.join(current_dir, "fl_utils", "tensor_utils.py"),
 )
+fs_s1_compat = import_module_from_path(
+    "fs_s1_compat",
+    os.path.join(current_dir, "fl_utils", "s1_compat.py"),
+)
 fs_model_manager = import_module_from_path(
     "fs_model_manager",
     os.path.join(current_dir, "fl_utils", "model_manager.py"),
@@ -114,8 +118,8 @@ NODE_DISPLAY_NAME_MAPPINGS = {
 }
 
 # Version info
-__version__ = "1.0.0"
+__version__ = "1.0.2"
 
-print(f"\033[36m[FL FishSpeech] v{__version__} - AI Text-to-Speech & Voice Cloning (Fish Audio S2)\033[0m")
+print(f"\033[36m[FL FishSpeech] v{__version__} - OpenAudio S1 TTS & Voice Cloning\033[0m")
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]

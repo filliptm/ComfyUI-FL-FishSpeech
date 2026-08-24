@@ -9,6 +9,8 @@ from typing import Any
 
 import torch
 
+import fs_s1_compat  # type: ignore[import]
+
 logger = logging.getLogger(__name__)
 
 LOG_PREFIX = "[FL FishSpeech]"
@@ -207,6 +209,7 @@ def load_fs_model(
         precision=dtype,
         compile=compile,
     )
+    fs_s1_compat.configure_s1_tokenizer(model, checkpoint_dir)
     t_model = time.perf_counter() - t0
     print(f"{LOG_PREFIX} Transformer loaded in {t_model:.2f}s — {_count_params(model)}")
 
